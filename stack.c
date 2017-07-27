@@ -68,8 +68,11 @@ int main(){
 			break;
 			case 3:pop();
 			break;
-			case 4:exit(0);
-			default 0:printf("Wrong choice");
+			case 4:
+					exit(0);
+			break;
+			default:printf("Wrong choice");
+			break;
 		}
 	}while(1);
 	return 0;

@@ -28,7 +28,7 @@ void convert(char in[],char post[])
 	stack s1;
 	int j=0,i;
 	s1.top=-1;
-	for(i=0;in[i]!='0';i++)
+	for(i=0;in[i]!='\0';i++)
 	{
 		if(isalpha(in[i]))
 			post[j++]=in[i];
