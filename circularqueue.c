@@ -26,7 +26,16 @@ int display(){
 	{
 		while(i!=rear)
 		{
-			printf("%d\t",
+			printf("%d\t",queue[i]);
+			i=(i+1)%MAX_SIZE;
+		}
+		printf("%d\t",queue[i]);
+	}
+	else{
+		printf("\nQueue is Empty.");
+	}	
+			
+}
 //return element at the front of queue
 }
 
