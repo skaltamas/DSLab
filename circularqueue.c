@@ -6,7 +6,7 @@ int queue[MAX_SIZE],rear=-1,front=-1;
 int isFull()
 {
 //returns 1 if queue is full else returns -1
-	if(((abs(front-rear)%(MAX_SIZE-1)==1)||(abs(front-rear)%(MAX_SIZE-1)==0))&&((front!=-1)&&(rear!=-1)))
+	if((rear==MAX_SIZE-1&&front==0)||(rear+1==front))
 		return 1;
 	else 
 		return 0;
@@ -21,7 +21,12 @@ int isEmpty(){
 }
 
 int display(){
-	return queue[front];
+	int i=front;
+	if(!isEmpty())
+	{
+		while(i!=rear)
+		{
+			printf("%d\t",
 //return element at the front of queue
 }
 
@@ -33,7 +38,7 @@ void insertQueue(int d)
 		{
 			front++;
 		}
-		rear=(rear++)%MAX_SIZE;
+		rear=(rear+1)%(MAX_SIZE);
 		queue[rear]=d;
 		printf("%d element is successfully inserted\n",d);
 	}
@@ -54,7 +59,7 @@ void deleteQueue()
 		}
 		else
 		{
-		front=(front++)%MAX_SIZE;
+		front=(front+1)%(MAX_SIZE);
 		}
 		printf("The element deleted is %d\n",d);
 	}
