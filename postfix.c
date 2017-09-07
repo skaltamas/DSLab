@@ -1,3 +1,7 @@
+/*Description:Evaluation of postfix expression
+ * Learner:Shaikh Altamas shakeel
+ * Roll no:16co11
+ */
 #include<stdio.h>
 #include<ctype.h>
 #define MAX_SIZE 30

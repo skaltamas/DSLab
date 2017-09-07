@@ -1,14 +1,15 @@
-/*Description:Implementation of Singly Linked List
+/*Description:Implementation of Doubly Linked List
  * Learner:Shaikh Altamas shakeel
  * Roll no:16co11
  */
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct linked_list
+typedef struct dlinked_list
 {
 	int data;
-	struct linked_list *next;
+	struct dlinked_list *next;
+	struct dlinked_list *prev;
 }node;
 
 void print(node *q)
@@ -29,10 +30,14 @@ void insbeg(node **q,int no)
 	temp=*q;
 	ptr=(node*)malloc(sizeof(node));
 	ptr->data=no;
+	ptr->prev=NULL;
 	if(temp==NULL)
 		ptr->next=NULL;
 	else
+	{	
 		ptr->next=temp;
+		temp->prev=ptr;
+	}
 	*q=ptr;
 	printf("\nElements of linked list after insertion\n");
 	print(*q);
@@ -46,12 +51,16 @@ void insend(node **q,int no)
 	ptr->next=NULL;
 	temp=*q;
 	if(temp==NULL)
+	{	
 		*q=ptr;
+		ptr->prev=NULL;
+	}
 	else
 	{
 		while(temp->next!=NULL)
 			temp=temp->next;
-			temp->next=ptr;
+		temp->next=ptr;
+		ptr->prev=temp;
 	}
 	printf("\nElements of Linked list after insertion\n");
 	print(*q);
@@ -60,24 +69,35 @@ void insend(node **q,int no)
 void insafter(node *q,int no)
 {
 	int loc,k;
-	node *temp,*ptr,*old;
+	node *temp,*ptr;
 	temp=q;
 	ptr=(node*)malloc(sizeof(node));
 	ptr->data=no;
 	printf("Enter location where the no is to be inserted: ");
 	scanf("%d",&loc);
+	if(loc==1)
+	{
+		printf("\nPlease use Insert at the beginning option\n");
+	    return;
+	}
 	for(k=1;k<loc;k++)
 	{
 		if(temp==NULL)
 				printf("\nElements are less than provided location\n");
 		else
 		{
-			old=temp;
 			temp=temp->next;
 		}
 	}
+	if(temp==NULL)
+	{	
+		printf("\nPlease use Insert at the end option\n");
+		return;
+	}	
+	temp->prev->next=ptr;
+	ptr->prev=temp->prev;
 	ptr->next=temp;
-	old->next=ptr;
+	temp->prev=ptr;
 	printf("\nElements of linked list after insertion\n");
 	print(q);
 }
@@ -85,7 +105,7 @@ void insafter(node *q,int no)
 void del(node **q,int no)
 {
 	int f=0;
-	node *old,*temp;
+	node *temp;
 	temp=*q;
 	while(temp!=NULL)
 	{
@@ -93,15 +113,22 @@ void del(node **q,int no)
 		{
 			f=1;
 			if(temp==*q)
+			{
 				*q=temp->next;
+				if(temp->next!=NULL)
+					temp->next->prev=NULL;
+			}
 			else
-				old->next=temp->next;
+			{
+				temp->prev->next=temp->next;
+				if(temp->next!=NULL)
+					temp->next->prev=temp->prev;
+			}
 			free(temp);
 			break;
 		}
 		else
 		{
-			old=temp;
 			temp=temp->next;
 		}
 	}
@@ -124,9 +151,15 @@ int main()
 	int i,n,j,no,c;
 	printf("\nEnter the no of nodes: ");
 	scanf("%d",&n);
+	if(n<1)
+	{
+		printf("\nInvalid number of nodes\n");
+		return 0;
+	}
 	printf("Enter node number 1: ");
 	start=(node*)malloc(sizeof(node));
-	scanf("%d",start->data);
+	scanf("%d",&start->data);
+	start->prev=NULL;
 	temp=start;
 	for(i=1;i<n;i++)
 	{
@@ -134,6 +167,7 @@ int main()
 		printf("\nEnter node number %d: ",i+1);
 		scanf("%d",&ptr->data);
 		temp->next=ptr;
+		ptr->prev=temp;
 		temp=ptr;
 	}
 	temp->next=NULL;
@@ -184,3 +218,4 @@ int main()
 		}while(1);
 	return 0;
 }
+

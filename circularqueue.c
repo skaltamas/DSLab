@@ -1,3 +1,7 @@
+/*Description:Array implementation of Circular Queue
+ * Learner:Shaikh Altamas shakeel
+ * Roll no:16co11
+ */
 #include<stdio.h>
 #include<math.h>
 #define MAX_SIZE 10

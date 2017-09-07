@@ -1,9 +1,14 @@
+/*Description:Check continuity of different types of paranthesis using stack
+ * Learner:Shaikh Altamas shakeel
+ * Roll no:16co11
+ */
 #include<stdio.h>
 #include<ctype.h>
+#define MAX 100
 
-typedef struct conversion
+typedef struct stack
 {
-	char a[30];
+	char a[MAX];
 	int top;
 }stack;
 
@@ -14,7 +19,7 @@ int isMatchingPair(char,char);
 
 int main()
 {
-	char exp[30];
+	char exp[MAX];
 	printf("Enter an Expression containing only brackets\n");
 	scanf("%s",exp);
 	checkContinuity(exp);
@@ -40,8 +45,7 @@ int isMatchingPair(char left,char right)
 
 void checkContinuity(char exp[])
 {
-	int i;
-	char c;
+	int i,c;
 	stack s;
 	s.top=-1;
 	for(i=0;exp[i]!='\0';i++)
@@ -55,16 +59,13 @@ void checkContinuity(char exp[])
 				printf("Invalid Expression\n");
 				return;
 			}
-			else
-			{
-				c=pop(&s);
-				if(isMatchingPair(c,exp[i]))
-					continue;
-				else{
-					printf("Invalid Expression\n");
-					return;
+			c=pop(&s);
+			if(isMatchingPair(c,exp[i]))
+				continue;
+			else{
+				printf("Invalid Expression\n");
+				return;
 				}
-			}
 		}
 	}
 	if(s.top==-1)
@@ -73,24 +74,19 @@ void checkContinuity(char exp[])
 		printf("Expression is invalid\n");
 }
 				
-
-void push(stack *s,char opr)
+void push(struct stack *s,char opr)
 {
-	s->top++;
-	s->a[s->top]=opr;
+	if(s->top!=MAX-1)
+	{
+		s->top++;
+		s->a[s->top]=opr;
+	}
+	else
+		printf("\nStack is full\n");
 }
 
-char pop(stack *s)
+char pop(struct stack *s)
 {
-	if (s->top==-1)
-	{
-		printf("stack is empty\n");
-		return 0;
-    }
-    else
-    {
-		char data=s->a[s->top--];
-		return data;
-    }
+	return(s->a[s->top--]);
 }
 

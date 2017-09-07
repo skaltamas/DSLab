@@ -1,21 +1,20 @@
+/*Description:Array implementation of stack
+ * Learner:Shaikh Altamas shakeel
+ * Roll no:16co11
+ */
 #include<stdio.h>
+#include<stdlib.h>
 #define MAX_SIZE 10
 
 int stack[MAX_SIZE],top=-1;
 int isFull(){
 //returns 1 if stack is full else returns -1
-	if(top==MAX_SIZE-1)
-		return 1;
-	else 
-		return -1;
+	return top==MAX_SIZE-1;
 }
 
 int isEmpty(){
 //returns 1 if stack is empty else returns -1
-	if(top==-1)
-		return 1;
-	else
-		return -1;
+	return top==-1;
 }
 
 int peek(){
@@ -26,12 +25,12 @@ int peek(){
 void  push(int e){
 	if(!isFull())
 	{
-		top++;
+		top++;//increment at the top
 		stack[top]=e;
 		printf("Element %d is successfully inserted\n",e);
 	}
 	else{
-		printf("Stack overflow !\n");
+		printf("Element cannot be inserted..Stack overflow !\n");
 	}
 //inserts an element into stack
 }
@@ -61,18 +60,18 @@ int main(){
 		{
 			case 1:e=peek();
 				printf("Element at the top of the stack= %d",e);
-			break;
+				break;
 			case 2:printf("Enter the element to be inserted :");
 				scanf("%d",&e);
 				push(e);
-			break;
+				break;
 			case 3:pop();
-			break;
+				break;
 			case 4:
 					exit(0);
-			break;
+				break;
 			default:printf("Wrong choice");
-			break;
+				break;
 		}
 	}while(1);
 	return 0;

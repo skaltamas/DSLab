@@ -1,3 +1,7 @@
+/*Description:Conversion of infix to postfix
+ * Learner:Shaikh Altamas shakeel
+ * Roll no:16co11
+ */
 #include<stdio.h>
 #include<ctype.h>
 
@@ -18,7 +22,7 @@ int main()
 	printf("Enter Infix Expression\n");
 	scanf("%s",infix);
 	convert(infix,postfix);
-	printf("Enter Postfix Expression\n%s",postfix);
+	printf("Postfix Expression\n%s",postfix);
 	return 0;
 }
 
