@@ -2,19 +2,18 @@
  * Learner:Shaikh Altamas shakeel
  * Roll no:16co11
  */
-include<stdio.h>
-inlcude<stdlib.h>
+#include<stdio.h>
 #define MAX_SIZE 10
 
 int queue[MAX_SIZE],front=-1,rear=-1;
 
-int isFull()
+void isFull()
 {
 //check if queue is full
 	return rear==MAX_SIZE-1;
 }
 
-int isEmpty(){
+void isEmpty(){
 //check if queue is empty
 	return front==-1&&rear==-1;
 
@@ -76,18 +75,23 @@ int main(){
 		scanf("%d",&choice);
 		switch(choice)
 		{
-			case 1:display();
-				break;
-			case 2:printf("Enter the element to be inserted :");
-				scanf("%d",&e);
-				insertQueue(e);
-				break;
-			case 3:deleteQueue();
-				break;
-			case 4:	exit(0);
-				break;
-			default:printf("Wrong choice\n");
-				break;
+			case 1:
+					display();
+					break;
+			case 2:
+					printf("Enter the element to be inserted :");
+					scanf("%d",&e);
+					insertQueue(e);
+					break;
+			case 3:
+					deleteQueue();
+					break;
+			case 4:	
+					return 0;
+					break;
+			default:
+					printf("Wrong choice\n");
+					break;
 		}
 	}while(1);
 	return 0;

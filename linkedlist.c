@@ -66,6 +66,11 @@ void insafter(node *q,int no)
 	ptr->data=no;
 	printf("Enter location where the no is to be inserted: ");
 	scanf("%d",&loc);
+	if(loc==1)
+	{
+		printf("\nPlease use Insert at the beginning option\n");
+	    return;
+	}
 	for(k=1;k<loc;k++)
 	{
 		if(temp==NULL)
@@ -76,6 +81,11 @@ void insafter(node *q,int no)
 			temp=temp->next;
 		}
 	}
+	if(temp==NULL)
+	{	
+		printf("\nPlease use Insert at the end option\n");
+		return;
+	}	
 	ptr->next=temp;
 	old->next=ptr;
 	printf("\nElements of linked list after insertion\n");
@@ -126,7 +136,7 @@ int main()
 	scanf("%d",&n);
 	printf("Enter node number 1: ");
 	start=(node*)malloc(sizeof(node));
-	scanf("%d",start->data);
+	scanf("%d",&start->data);
 	temp=start;
 	for(i=1;i<n;i++)
 	{
