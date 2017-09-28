@@ -125,7 +125,7 @@ void delete(node **q,int num)
 		{
 			if(temp->left==NULL&&temp->right==NULL)
 				free(temp);
-			return;
+			return 1;
 		else
 		{
 			if(num>q->data)

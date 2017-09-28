@@ -27,10 +27,10 @@ void  push(int e){
 	{
 		top++;//increment at the top
 		stack[top]=e;
-		printf("Element %d is successfully inserted\n",e);
+		printf("\nElement %d is successfully inserted\n",e);
 	}
 	else{
-		printf("Element cannot be inserted..Stack overflow !\n");
+		printf("\nElement cannot be inserted..Stack overflow !\n");
 	}
 //inserts an element into stack
 }
@@ -42,10 +42,10 @@ void pop(){
 	{
 		d=stack[top];
 		top--;
-		printf("Element %d is successively deleted\n",d);
+		printf("\nElement %d is successively deleted\n",d);
 	}
 	else{
-		printf("Stack underflow !\n");
+		printf("\nStack underflow !\n");
 	}
 }
 
@@ -53,15 +53,15 @@ int main(){
 	int choice,e;
 	do
 	{
-		printf("Enter\n1.peek\t2.push\t3.pop\t4.exit\n");
-		printf("Enter your choice\n");
+		printf("\nEnter\n1.peek\t2.push\t3.pop\t4.exit\n");
+		printf("\nEnter your choice: ");
 		scanf("%d",&choice);
 		switch(choice)
 		{
 			case 1:e=peek();
-				printf("Element at the top of the stack= %d",e);
+				printf("\nElement at the top of the stack= %d\n",e);
 				break;
-			case 2:printf("Enter the element to be inserted :");
+			case 2:printf("\nEnter the element to be inserted: ");
 				scanf("%d",&e);
 				push(e);
 				break;
@@ -70,11 +70,204 @@ int main(){
 			case 4:
 					exit(0);
 				break;
-			default:printf("Wrong choice");
+			default:printf("\nWrong choice\n");
 				break;
 		}
 	}while(1);
 	return 0;
 }
-			
-		
+
+/*OUTPUT:			
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 10
+
+Element 10 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 20
+
+Element 20 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 30
+
+Element 30 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 40
+
+Element 40 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 50
+
+Element 50 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 60
+
+Element 60 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 70
+
+Element 70 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 80
+
+Element 80 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 90
+
+Element 90 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 100
+
+Element 100 is successfully inserted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 110
+
+Element cannot be inserted..Stack overflow !
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 1
+
+Element at the top of the stack= 100
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 100 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 90 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 80 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 70 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 60 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 50 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 40 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 30 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 20 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Element 10 is successively deleted
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 3
+
+Stack underflow !
+
+Enter
+1.peek	2.push	3.pop	4.exit
+
+Enter your choice: 4
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+*/
