@@ -65,7 +65,8 @@ int operation(int num1,int num2,char opr)
 		case '/':return num1/num2;
 		break;
 	}
-}
+	return 0;
+}                                           
 
 int evaluate(char pos[])
 {
@@ -79,7 +80,7 @@ int evaluate(char pos[])
 		if(isdigit(opr))
 		push(&s,opr-'0');
 		else
-		{
+		{                                                                                                     
 		e1=pop(&s);
 		e2=pop(&s);
 		result=operation(e1,e2,opr);
@@ -89,4 +90,13 @@ int evaluate(char pos[])
 	return pop(&s);
 }
 
+/*OUTPUT:
+Enter POSTFIX Expression
+2345*+-
+Evaluation of postfix expresssion =21
+
+------------------
+(program exited with code: 0)
+Press return to continue
+*/
 
