@@ -11,31 +11,6 @@ typedef struct bst
 	struct bst *left,*right;
 }node;
 
-void insert(node **r,int num)
-{
-	node *temp,*ptr;
-	temp=*r;
-	if(temp==NULL)
-	{	
-		ptr=(node*)malloc(sizeof(node));
-		ptr->data=num;
-		ptr->left=NULL;
-		ptr->right=NULL;
-		*r=ptr;
-	}
-	else
-	{
-		if(num > temp->data)
-		{
-				insert(&temp->right,num);
-		}
-		else
-		{
-			insert(&temp->left,num);
-		}
-	}
-}
-
 void traverse_inorder(node *q)
 {
 	if(q!=NULL)
@@ -46,21 +21,43 @@ void traverse_inorder(node *q)
 	}
 }
 
-int search_bst(node *q,int num)
+void insert(node **r,int num)
 {
-	if(q==NULL)
-		return 0;
+	node *temp,*ptr;
+	temp=*r;
+	if(temp==NULL)
+	{
+		ptr=(node*)malloc(sizeof(node));
+		ptr->data=num;
+		ptr->left=NULL;
+		ptr->right=NULL;
+		*r=ptr;
+	}
 	else
 	{
-		if(q->data==num)
+		if(num > temp->data)
+				insert(&temp->right,num);
+		else
+				insert(&temp->left,num);
+	}
+}
+
+int search(node *q,int num)
+{
+	if(q==NULL)
+	{
+		return -1;
+	}
+	else
+	{
+		if( q->data==num)
 			return 1;
 		else
 		{
 			if(num>q->data)
-			{	
-				return search_bst(q->right,num);
-				return search_bst(q->left,num);
-			}
+				return search(q->right,num);
+			else
+				return search(q->left,num);
 		}
 	}
 }
@@ -72,34 +69,37 @@ void search_node(node **x,node *root,node **parent,int num,int *f)
 	if(temp==NULL)
 		return;
 	while(temp!=NULL)
-	{
+	{	
 		if(temp->data==num)
 		{
-		*f=1;
-		*x=temp;
-		return;
+			*f=1;
+			*x=temp;
+			return;
 		}
-	*parent=temp;
-	if(num>temp->data)
-		temp=temp->right;
-	else
-		temp=temp->left;
+		*parent=temp;
+		if(num>temp->data)
+			temp=temp->right;
+		else
+			temp=temp->left;
 	}
 }
 
-void delete(node **r,int num)
+void delete(node **q,int num)
 {
 	node *temp,*parent,*xsucc,*x;
 	int f=0;
-	parent=NULL;x=NULL;xsucc=NULL;
-	temp=*r;
+	parent=NULL;
+	x=NULL;
+	xsucc=NULL;
+	temp=*q;
 	search_node(&x,temp,&parent,num,&f);
-		if(f==0){
-		printf("\nTHE ELEMENT %d IS NOT FOUND");
+	if(f==0)
+	{
+		printf("\n THE GIVEN NUMBER %d IS NOT FOUND",num);
 		return;
 	}
 	//x has no child
-	if(x->left==NULL && x->right==NULL)
+	if((x->left==NULL) && (x->right==NULL))
 	{
 		if(x->data > parent->data)
 			parent->right=NULL;
@@ -107,22 +107,23 @@ void delete(node **r,int num)
 			parent->left=NULL;
 	}
 	//x has left child
-	else if(x->left!=NULL && x->right==NULL)
+	else if((x->left!=NULL) && (x->right==NULL))
 	{
 		if(x->data > parent->data)
 			parent->right=x->left;
 		else
 			parent->left=x->left;
 	}
-	//x hAS right child
-	else if(x->right!=NULL && x->left==NULL)
+		//x has right child
+	else if((x->right!=NULL) && (x->left==NULL))
 	{
+		printf("\nbefore %d\n",parent->data);
 		if(x->data > parent->data)
 			parent->right=x->right;
 		else
 			parent->left=x->right;
-	}
-	//x has both left and right child
+	}	
+			//x has both left and right  child
 	else if(x->left!=NULL && x->right!=NULL)
 	{
 		parent=x;
@@ -132,16 +133,17 @@ void delete(node **r,int num)
 			parent=xsucc;
 			xsucc=xsucc->left;
 		}
-		if(xsucc->data > parent->data)
+		x->data=xsucc->data;
+		x=xsucc;
+		if(x->data > parent->data)
 			parent->right=NULL;
 		else
-		{
-			parent->left=NULL;
-			x->data=xsucc->data;
-			x=xsucc;
-		}
-	}free(x);
+			parent->left=NULL;		
+	}
+	
+	free(x);
 }
+
 
 int main()
 {
