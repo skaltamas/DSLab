@@ -194,3 +194,278 @@ int main()
 		}while(1);
 	return 0;
 }
+
+/*OUTPUT:
+Enter the no of nodes: 5
+Enter node number 1: 11
+
+Enter node number 2: 22
+
+Enter node number 3: 33
+
+Enter node number 4: 44
+
+Enter node number 5: 55
+
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+3
+
+Traversing Linklist
+
+11	22	33	44	55	
+End of linked list
+
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+1
+
+Enter the number to be inserted: 66
+
+Enter 1 to insert at the beginning
+
+Enter 2 to insert at the end
+
+Enter 3 to insert at a specified location
+2
+
+Elements of Linked list after insertion
+
+11	22	33	44	55	66	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+1
+
+Enter the number to be inserted: 9
+
+Enter 1 to insert at the beginning
+
+Enter 2 to insert at the end
+
+Enter 3 to insert at a specified location
+1
+
+Elements of linked list after insertion
+
+9	11	22	33	44	55	66	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+1
+
+Enter the number to be inserted: 25
+
+Enter 1 to insert at the beginning
+
+Enter 2 to insert at the end
+
+Enter 3 to insert at a specified location
+3
+Enter location where the no is to be inserted: 4
+
+Elements of linked list after insertion
+
+9	11	22	25	33	44	55	66	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+1
+
+Enter the number to be inserted: 69
+
+Enter 1 to insert at the beginning
+
+Enter 2 to insert at the end
+
+Enter 3 to insert at a specified location
+3
+Enter location where the no is to be inserted: 9
+
+Please use Insert at the end option
+
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+1
+
+Enter the number to be inserted: 5
+
+Enter 1 to insert at the beginning
+
+Enter 2 to insert at the end
+
+Enter 3 to insert at a specified location
+3
+Enter location where the no is to be inserted: 1
+
+Please use Insert at the beginning option
+
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 66
+
+Elements of linked list after deletion
+
+9	11	22	25	33	44	55	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 22
+
+Elements of linked list after deletion
+
+9	11	25	33	44	55	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 33
+
+Elements of linked list after deletion
+
+9	11	25	44	55	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 9
+
+Elements of linked list after deletion
+
+11	25	44	55	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 11
+
+Elements of linked list after deletion
+
+25	44	55	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 44
+
+Elements of linked list after deletion
+
+25	55	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 55
+
+Elements of linked list after deletion
+
+25	
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 25
+
+Elements of linked list after deletion
+
+
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+2
+
+Enter the number to be deleted: 1
+
+The given no is not found
+
+Elements of linked list after deletion
+
+
+Enter your choice
+
+1-Insertion
+2-Deletion
+3-Traverse
+4-Exit
+
+4
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+*/

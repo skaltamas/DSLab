@@ -6,87 +6,125 @@
 #include<ctype.h>
 #define MAX 100
 
-typedef struct stack
+#include<stdio.h>
+#include<ctype.h> 
+
+typedef struct conversion
 {
-	char a[MAX];
+	char a[30];
 	int top;
 }stack;
 
-void push(stack*,char);
-char pop(stack*);
-void checkContinuity(char []);
-int isMatchingPair(char,char);
-
-int main()
+char pop(stack *s)
 {
-	char exp[MAX];
-	printf("Enter an Expression containing only brackets\n");
-	scanf("%s",exp);
-	checkContinuity(exp);
-	return 0;
-}
-
-int isMatchingPair(char left,char right)
-{
-	switch(left)
+	if (s->top==-1)
 	{
-		case '(':if(right==')')
-					return 1;
-					else return 0;
-		case '{':if(right=='}')
-					return 1;
-					else return 0;
-		case '[':if(right==']')
-					return 1;
-					else return 0;
-		default: return 0;
-	}
+		printf("stack is empty\n");
+		return 0;
+    }
+    else
+    {
+		char data=s->a[s->top--];
+		return data;
+    }
 }
 
-void checkContinuity(char exp[])
+void push(stack *s,char opr)
 {
-	int i,c;
-	stack s;
+	if(s->top==29)
+	{
+		printf("stack is full\n");
+		return;
+     }
+    else
+    {
+	s->top++;
+	s->a[s->top]=opr;
+    }
+ }   
+
+int isMatchingpair (char left,char right)
+{
+	 switch(left)
+{ 
+case '(':if (right==')')
+           return 1;
+         else
+           return 0;
+case'[': if (right==']')
+           return 1;
+         else
+           return 0;
+case'{':if (right=='}')
+          return 1;
+        else
+          return 0;
+default:
+         return 0;
+	 }
+}
+
+void checkcontinuity (char exp[])
+{
+	int i;
+	char c;
+    stack s;
 	s.top=-1;
 	for(i=0;exp[i]!='\0';i++)
 	{
-		if(exp[i]=='('||exp[i]=='{'||exp[i]=='[')
-			push(&s,exp[i]);
+		if (exp[i]=='('||exp[i]=='{'||exp[i]=='[')
+		   push(&s,exp[i]);
 		else
-		{
-			if(s.top==-1)
-			{
-				printf("Invalid Expression\n");
-				return;
-			}
-			c=pop(&s);
-			if(isMatchingPair(c,exp[i]))
-				continue;
-			else{
-				printf("Invalid Expression\n");
-				return;
-				}
-		}
-	}
-	if(s.top==-1)
-		printf("Expression is valid\n");
-	else
-		printf("Expression is invalid\n");
+	    {
+		if (s.top!=-1)
+	     c=pop(&s);
+	    else
+	    {
+	     printf("INVALID EXPRESSION");
+	     return;
+	    }
+	    if(isMatchingpair(c,exp[i]))
+	      continue;
+	    else
+	    { 
+	       printf("INVALId EXPRESSION");
+	       return;
+	     }
+	     }
+        }
+	    if(s.top==-1)
+	       printf("EXPRESSION VALID");
+	    else
+	    {
+	      printf("Invalid Expression");
+	      return;
+	     }
 }
-				
-void push(struct stack *s,char opr)
+	     
+int main()
 {
-	if(s->top!=MAX-1)
-	{
-		s->top++;
-		s->a[s->top]=opr;
-	}
-	else
-		printf("\nStack is full\n");
+	char exp[30];
+	printf("ENTER YOUR EXPRESSION CONTAINIG PARENTHESIS:\n");
+	scanf("%s",exp);
+	checkcontinuity(exp);
+	return 0;
 }
 
-char pop(struct stack *s)
-{
-	return(s->a[s->top--]);
-}
+/*OUTPUT:
+ENTER YOUR EXPRESSION CONTAINIG PARENTHESIS:
+(){[]}
+EXPRESSION VALID
+
+------------------
+(program exited with code: 0)
+Press return to continue
+* 
+* ENTER YOUR EXPRESSION CONTAINIG PARENTHESIS:
+{{}()[]
+Invalid Expression
+
+------------------
+(program exited with code: 0)
+Press return to continue
+*/
 

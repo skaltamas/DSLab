@@ -100,3 +100,15 @@ char pop(stack *s)
 		return data;
     }
 }
+
+/*OUTPUT:
+Enter Infix Expression
+A+B*C-D
+stack is empty
+Postfix Expression
+ABC*+D-
+
+------------------
+(program exited with code: 0)
+Press return to continue
+*/

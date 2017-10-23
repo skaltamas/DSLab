@@ -109,3 +109,207 @@ int main(){
 	return 0;
 }
 
+/*OUTPUT:
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 10
+
+Element 10 is successfully Inserted
+front=0	rear=0
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 20
+
+Element 20 is successfully Inserted
+front=0	rear=1
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 30
+
+Element 30 is successfully Inserted
+front=0	rear=2
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 40
+
+Element 40 is successfully Inserted
+front=0	rear=3
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 50
+
+Element 50 is successfully Inserted
+front=0	rear=4
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 60
+
+Element 60 is successfully Inserted
+front=0	rear=5
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 70
+
+Element 70 is successfully Inserted
+front=0	rear=6
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 80
+
+Element 80 is successfully Inserted
+front=0	rear=7
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 90
+
+Element 90 is successfully Inserted
+front=0	rear=8
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 100
+
+Element 100 is successfully Inserted
+front=0	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 2
+
+Enter the element to be inserted: 110
+
+The queue is full..element cannot be inserted
+
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 1
+
+Elements of queue are
+10	20	30	40	50	60	70	80	90	100	
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 10
+
+front=1	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 20
+
+front=2	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 30
+
+front=3	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 40
+
+front=4	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 50
+
+front=5	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 60
+
+front=6	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 70
+
+front=7	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 80
+
+front=8	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 90
+
+front=9	rear=9
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+The element deleted is 100
+
+front=-1	rear=-1
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 3
+
+Queue is empty
+
+Enter
+1.display	2.insert	3.delete	4.exit
+
+Enter your choice: 4
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+*/
